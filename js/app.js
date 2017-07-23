@@ -306,7 +306,7 @@ moreInfo = function(marker){
   //hiding 'photo' div
   $('#photos').hide();
   //getting short description of the atttraction from wikipedia
-  var wikiUrl = 'http://en.wikipedia.org/w/api.php?action=opensearch&search=' + marker.wikiname + '&format=json&callback=wikiCallback';
+  var wikiUrl = 'https://en.wikipedia.org/w/api.php?action=opensearch&search=' + marker.wikiname + '&format=json&callback=wikiCallback';
   $.ajax( {
   url: wikiUrl,
   dataType: "jsonp",
@@ -327,7 +327,7 @@ moreInfo = function(marker){
     $wiki.append("<p>Sorry, no additional information found</p>");
   }
 });
-  var wikiUrl2 = 'http://en.wikipedia.org/w/api.php?action=opensearch&search=' + marker.city + '&format=json&callback=wikiCallback';
+  var wikiUrl2 = 'https://en.wikipedia.org/w/api.php?action=opensearch&search=' + marker.city + '&format=json&callback=wikiCallback';
   //getting the list of other articles about the atttraction from wikipedia
   $.ajax( {
   url: wikiUrl2,
