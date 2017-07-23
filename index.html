@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Tourists Attractions Map">
+    <title>World's Attractions Map</title>
+    <link rel="stylesheet" href="css/styles.css">
+  </head> 
+  <body>
+<div id="wrapper">
+<div id="alllist">
+ <ul data-bind="foreach: markerArray">
+    <li>
+    <p data-bind="html: description, click: clickHandler"></p>
+    <button class="more" data-bind="click: moreInfo">More info</button> <button class="more" data-bind="click: getPhotos">Photos</button>
+    </li>
+    </ul>
+</div>
+  <div id="map-canvas"></div>
+  <form class="form-wrapper">
+    <input data-bind="value: filterM, valueUpdate: 'afterkeydown'" id="search" placeholder="Search for attractions" required>
+    <button id="submit" data-bind="click: getResults">Go</button>
+</form>
+<p data-bind="text: filterM"></p>
+<div id="results" data-bind="with: markerArray()[index()]">
+<span data-bind="html: description, click: clickHandler">
+</div>
+<div id="noresults" data-bind="if: displayResults">Sorry, no attraction found. Please, try again or choose attraction from the list</div>
+</div>
+<div id="wiki"></div>
+<div id="photos"></div>
+<script src="js/lib/knockout-3.2.0.js"></script>
+<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyA0cJunFi4t6RaZoxEP1Ps1l9wxj_dZ1x8&libraries=places"></script>
+  <script type="text/javascript" src="https://www.google.com/jsapi?autoload={'modules':[{'name':'visualization','version':'1','packages':['corechart']}]}"></script>
+    <script src="js/lib/jQuery.js"></script>
+<script type="text/javascript" src='js/app.js'></script>
+  </body>
+</html>
